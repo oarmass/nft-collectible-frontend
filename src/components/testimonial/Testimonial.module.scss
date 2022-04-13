@@ -1,0 +1,40 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 8px solid $green;
+  width: 300px;
+  height: 160px;
+  margin: $x1;
+}
+
+.imageContainer {
+  width: 33%;
+  padding: $x1;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: $x1;
+}
+
+.quote {
+  font-size: 24px;
+  font-weight: 900;
+  color: $green;
+  margin: 0;
+}
+
+.author {
+  font-weight: 300;
+  font-size: 12px;
+}

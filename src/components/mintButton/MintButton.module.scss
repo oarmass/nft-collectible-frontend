@@ -1,0 +1,56 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: $x3 0;
+
+  @media (max-width: 768px) {
+    margin: $x2 0;
+  }
+}
+
+.instructions {
+  margin: 0;
+}
+
+.input {
+  padding: $x1;
+  font-size: 20px;
+  font-weight: 900;
+  font-family: "Fredoka", sans-serif;
+  width: 250px;
+  margin: $x2 0;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    width: 200px;
+    font-size: 16px;
+  }
+}
+
+.price {
+  margin: 0 0 $x2 0;
+  font-weight: 900;
+}
+
+.button {
+  background-color: $green;
+  color: $black;
+  font-size: 20px;
+  font-weight: 900;
+  border: none;
+  border-radius: $x1;
+  padding: $x2;
+  font-family: "Fredoka", sans-serif;
+  cursor: pointer;
+  width: 300px;
+
+  @media (max-width: 768px) {
+    width: 250px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,58 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  padding: $space-normal;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $lightBlue;
+  @media (max-width: 768px) {
+    padding: $space-nano;
+  }
+}
+
+.blank {
+  width: 33%;
+}
+
+.logo {
+  height: 50px;
+
+  @media (max-width: 768px) {
+    height: 40px;
+  }
+}
+
+.links {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.link {
+  margin-left: $x3;
+
+  @media (max-width: 768px) {
+    margin-left: $x2;
+  }
+}
+
+.linkImage {
+  height: 40px;
+  @media (max-width: 768px) {
+    height: 30px;
+  }
+}
+
+.twitter {
+  color: $black;
+  width: 30px;
+  height: 30px;
+
+  @media (max-width: 768px) {
+    height: 20px;
+    width: 20px;
+  }
+}

@@ -1,0 +1,30 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: $x3 0;
+
+  @media (max-width: 768px) {
+    margin: $x2 0;
+  }
+}
+
+.button {
+  background-color: $green;
+  color: $black;
+  font-size: 20px;
+  font-weight: 900;
+  border: none;
+  border-radius: $x1;
+  padding: $x2;
+  font-family: "Fredoka", sans-serif;
+  cursor: pointer;
+  width: 300px;
+
+  @media (max-width: 768px) {
+    width: 250px;
+    font-size: 16px;
+  }
+}

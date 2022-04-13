@@ -1,0 +1,13 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: $x5 0 0 0;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    margin: $x3 0 0 0;
+  }
+}

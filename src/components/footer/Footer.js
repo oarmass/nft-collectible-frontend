@@ -1,0 +1,17 @@
+import React from "react";
+import s from "./Footer.module.scss";
+
+export default function Footer() {
+  const TWITTER_HANDLE = "shan8851";
+  const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
+  return (
+    <div className={s.footer}>
+      <p className={s.footerText}>
+        Made with ❤️ by{" "}
+        <a className={s.footerLink} href={TWITTER_LINK}>
+          @Shan8851
+        </a>
+      </p>
+    </div>
+  );
+}

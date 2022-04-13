@@ -1,0 +1,32 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: $narrow-content;
+  margin: auto;
+}
+
+.heading {
+  color: $green;
+  font-size: 48px;
+  font-weight: 900;
+  margin: $x3 0 0 0;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    margin: $x1 0 0 0;
+  }
+}
+
+.text {
+  font-size: 16px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
