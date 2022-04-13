@@ -65,7 +65,7 @@ function App() {
               console.log("Transacting... please wait.")
               await nftTxn.wait();
               
-              console.log('Success!  See https://rinkeby.etherscan.io/tx/${nftTxn.hash}');
+             // console.log('Success!  See https://rinkeby.etherscan.io/tx/${nftTxn.hash}');
 
           }   else {
               console.log("Failed!");
