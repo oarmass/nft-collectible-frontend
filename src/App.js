@@ -87,7 +87,7 @@ function App() {
   const mintNftButton = () => {
     return (
       <button onClick={mintNftHandler} className='cta-button mint-nft-button'>
-        Mint NFT
+        Mint moonturd!
       </button>
     )
   }
