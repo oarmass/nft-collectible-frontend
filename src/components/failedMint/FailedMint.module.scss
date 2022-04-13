@@ -1,0 +1,24 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message {
+  font-weight: 500;
+  font-size: 22px;
+  color: $white;
+}
+
+.error {
+  font-weight: 900;
+  font-size: 22px;
+  color: $red;
+  text-decoration: underline;
+  background-color: $white;
+  padding: $x2;
+}

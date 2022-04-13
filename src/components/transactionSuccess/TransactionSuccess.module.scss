@@ -1,0 +1,35 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message {
+  font-weight: 500;
+  font-size: 22px;
+  color: $white;
+}
+
+.link {
+  font-weight: 900;
+  font-size: 22px;
+  color: $green;
+  text-decoration: underline;
+}
+
+.mintAgain {
+  margin: $x2 0;
+  background-color: transparent;
+  padding: $x2;
+  color: $green;
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: 900;
+  border: none;
+  font-family: "Fredoka", sans-serif;
+  cursor: pointer;
+}
