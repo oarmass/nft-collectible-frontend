@@ -39,9 +39,9 @@ export default function MintButton({ walletAddress }) {
     } catch (err) {
       console.log(err.code);
       if (err.code === "INSUFFICIENT_FUNDS") {
-        setErrorMessage("Insufficient balance to cover transaction");
+        setErrorMessage("You need more ether!");
       } else {
-        setErrorMessage("Oops... Something went wrong.");
+        setErrorMessage("Oops... something went wrong.");
       }
       // Reset total to remove conditional logic in UI
       setTotalToMint(null);
@@ -66,12 +66,12 @@ export default function MintButton({ walletAddress }) {
   return (
     <>
       <div className={s.container}>
-        <p className={s.instructions}>how many do you want to mint?</p>
+        <p className={s.instructions}>How many would you like to mint?</p>
         <input
           type="number"
           min={1}
           max={10}
-          placeholder="You can mint up to 10"
+          placeholder="Maximum 10 mints per transaction."
           className={s.input}
           onChange={(e) => handleInputChange(e.target.value)}
         />
