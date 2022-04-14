@@ -9,7 +9,12 @@ export default function ContractDetails() {
   return (
     <div className={s.container}>
       <h4 className={s.heading}>Verified Contract Address</h4>
-      <a className={s.link} href={CONTRACT_LINK}>
+      <a
+        rel="noreferrer"
+        target="_blank"
+        className={s.link}
+        href={CONTRACT_LINK}
+      >
         {CONTRACT_ADDRESS}
       </a>
     </div>

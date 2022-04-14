@@ -10,7 +10,12 @@ export default function Header() {
       <div className={s.blank} />
       <img src={TurdLogo} alt="Moonturd Logo" className={s.logo} />
       <div className={s.links}>
-        <a className={s.link} href="https://twitter.com/moonturds_xyz">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          className={s.link}
+          href="https://twitter.com/moonturds_xyz"
+        >
           <FaTwitter className={s.twitter} />
         </a>
         <a

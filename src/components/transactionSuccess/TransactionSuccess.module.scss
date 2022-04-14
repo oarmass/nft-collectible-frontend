@@ -14,15 +14,18 @@
   color: $white;
 }
 
+.linkText {
+  margin: 0;
+}
+
 .link {
   font-weight: 900;
-  font-size: 22px;
   color: $green;
   text-decoration: underline;
+  margin: 0;
 }
 
 .mintAgain {
-  margin: $x2 0;
   background-color: transparent;
   padding: $x2;
   color: $green;

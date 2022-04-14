@@ -8,7 +8,12 @@ export default function Footer() {
     <div className={s.footer}>
       <p className={s.footerText}>
         Made with ❤️ by{" "}
-        <a className={s.footerLink} href={TWITTER_LINK}>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          className={s.footerLink}
+          href={TWITTER_LINK}
+        >
           @Shan8851
         </a>
       </p>

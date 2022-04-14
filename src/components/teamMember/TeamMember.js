@@ -9,7 +9,7 @@ export default function TeamMember({ person }) {
         <p className={s.title1}>{person.title1}</p>
         <p className={s.title2}>{person.title2}</p>
       </div>
-      <a className={s.link} href={person.link}>
+      <a target="_blank" rel="noreferrer" className={s.link} href={person.link}>
         See more
       </a>
     </div>

@@ -15,6 +15,7 @@ export default function MintButton({ walletAddress }) {
   const [mintingSuccess, setMintingSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [helpModalVisible, setHelpModalVisible] = useState(false);
+  const [hash, setHash] = useState(null);
   // Price Helpers
   const price = totalToMint / 100;
   const priceToString = price.toString();
@@ -36,6 +37,7 @@ export default function MintButton({ walletAddress }) {
           value: ethers.utils.parseEther(amount),
         });
         await mintingTransaction.wait();
+        setHash(mintingTransaction.hash);
         setMintingSuccess(true);
         setLoading(false);
         // Reset total to remove conditional logic in UI
@@ -66,7 +68,11 @@ export default function MintButton({ walletAddress }) {
   if (loading) return <Loader />;
   if (mintingSuccess)
     return (
-      <TransactionSuccess mintAgain={mintAgain} walletAddress={walletAddress} />
+      <TransactionSuccess
+        mintAgain={mintAgain}
+        walletAddress={walletAddress}
+        hash={hash}
+      />
     );
   return (
     <>
