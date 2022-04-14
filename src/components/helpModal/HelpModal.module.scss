@@ -1,0 +1,59 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $black;
+  opacity: 0.6;
+  z-index: 1000;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $white;
+  width: calc(15rem + 15vw);
+  height: auto;
+  padding: $x4;
+  border-radius: $x2;
+  z-index: 1000;
+
+  @media (max-width: 768px) {
+    width: 80%;
+    padding: $x2;
+  }
+}
+
+.title {
+  font-size: 32px;
+  color: $black;
+  margin: 0;
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: $x4;
+  color: $black;
+  font-size: 32px;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin: $x2;
+    font-size: 24px;
+  }
+}
+
+.content {
+  color: $black;
+}

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { ethers } from "ethers";
 import contract from "../../contracts/moonturds.json";
+import { AiFillQuestionCircle } from "react-icons/ai";
 // Components
 import Loader from "../loader/Loader";
 import TransactionSuccess from "../transactionSuccess/TransactionSuccess";
+import HelpModal from "../helpModal/HelpModal";
 // Styles
 import s from "./MintButton.module.scss";
 
@@ -12,12 +14,15 @@ export default function MintButton({ walletAddress }) {
   const [loading, setLoading] = useState(false);
   const [mintingSuccess, setMintingSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [helpModalVisible, setHelpModalVisible] = useState(false);
   // Price Helpers
   const price = totalToMint / 100;
   const priceToString = price.toString();
   // Contract References
   const contractAddress = "0x4cC0fd6e661857D0715B6C51A04310A9C651AD62";
   const abi = contract.abi;
+
+  const toggleHelpModal = () => setHelpModalVisible(!helpModalVisible);
 
   const mintNFT = async (numberToMint, amount) => {
     try {
@@ -71,21 +76,31 @@ export default function MintButton({ walletAddress }) {
           type="number"
           min={1}
           max={10}
-          placeholder="Maximum 10 mints per transaction."
+          placeholder="Max 10 mints per transaction."
           className={s.input}
           onChange={(e) => handleInputChange(e.target.value)}
         />
         {totalToMint !== null && <p className={s.price}>PRICE: {price} eth</p>}
 
-        <button
-          onClick={() => mintNFT(totalToMint, priceToString)}
-          className={s.button}
-          disabled={totalToMint === null}
-        >
-          {totalToMint > 1 ? "MINT MOONTURDS!" : "MINT MOONTURD!"}
-        </button>
+        <div className={s.buttonContainer}>
+          <button
+            onClick={() => mintNFT(totalToMint, priceToString)}
+            className={s.button}
+            disabled={totalToMint === null}
+          >
+            {totalToMint > 1 ? "MINT MOONTURDS!" : "MINT MOONTURD!"}
+          </button>
+          <AiFillQuestionCircle
+            onClick={toggleHelpModal}
+            className={s.helpButton}
+          />
+        </div>
+
         {errorMessage && <p>{errorMessage}</p>}
       </div>
+      {helpModalVisible && (
+        <HelpModal show={helpModalVisible} toggle={toggleHelpModal} />
+      )}
     </>
   );
 }

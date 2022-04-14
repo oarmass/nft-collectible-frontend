@@ -5,7 +5,7 @@ export default function Testimonial({ image, quote, author }) {
   return (
     <div className={s.container}>
       <div className={s.imageContainer}>
-        <img src={image} alt="" className={s.image} />
+        <img src={image} alt="testimonial turd" className={s.image} />
       </div>
       <div className={s.content}>
         <h5 className={s.quote}>"{quote}"</h5>
