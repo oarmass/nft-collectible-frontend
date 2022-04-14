@@ -5,6 +5,7 @@ import Hero from "./components/hero/Hero";
 import Info from "./components/info/Info";
 import Layout from "./components/layout/Layout";
 import MintButton from "./components/mintButton/MintButton";
+import Team from "./components/team/Team";
 import Testimonials from "./components/testimonials/Testimonials";
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
       )}
       <Info />
       <ContractDetails />
+      <Team />
       <Testimonials />
     </Layout>
   );

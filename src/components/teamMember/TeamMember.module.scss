@@ -1,0 +1,49 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: $x2;
+  height: 280px;
+  width: 200px;
+}
+
+.image {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.content {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 900;
+  text-decoration: underline;
+  color: $green;
+  margin: $x1 0 0 0;
+}
+
+.title1 {
+  margin: $x1 0 0 0;
+}
+
+.title2 {
+  font-style: italic;
+  margin: 0;
+  font-size: 12px;
+}
+
+.link {
+  justify-self: flex-end;
+  color: $white;
+}
