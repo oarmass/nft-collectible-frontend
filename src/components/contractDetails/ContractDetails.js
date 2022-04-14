@@ -8,7 +8,7 @@ export default function ContractDetails() {
   const CONTRACT_LINK = `${BASE_URL}/${CONTRACT_ADDRESS}`;
   return (
     <div className={s.container}>
-      <h4 className={s.heading}>Smart Contract Address</h4>
+      <h4 className={s.heading}>Verified Contract Address</h4>
       <a className={s.link} href={CONTRACT_LINK}>
         {CONTRACT_ADDRESS}
       </a>
