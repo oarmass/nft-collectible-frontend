@@ -28,7 +28,7 @@ export default function MintButton({ walletAddress }) {
         const signer = provider.getSigner();
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
         let mintingTransaction = await nftContract.mintNFTs(numberToMint, {
-          value: ethers.utils.parseEther(amount),
+          value: ethers.utils.parseEther(".01"),
         });
         await mintingTransaction.wait();
         setMintingSuccess(true);
