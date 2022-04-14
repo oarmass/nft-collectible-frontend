@@ -8,7 +8,7 @@ export default function Team() {
       <h1 className={s.header}>Core Team</h1>
       <div className={s.container}>
         {data.map((person) => (
-          <TeamMember person={person} />
+          <TeamMember key={person.id} person={person} />
         ))}
       </div>
     </div>

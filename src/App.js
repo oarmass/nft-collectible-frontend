@@ -7,37 +7,44 @@ import Layout from "./components/layout/Layout";
 import MintButton from "./components/mintButton/MintButton";
 import Team from "./components/team/Team";
 import Testimonials from "./components/testimonials/Testimonials";
+import { providerOptions } from "./providerOptions";
+import Web3Modal from "web3modal";
+import { ethers } from "ethers";
+
+const web3Modal = new Web3Modal({
+  network: "rinkeby", // optional
+  providerOptions, // required
+  cacheProvider: true,
+});
 
 function App() {
-  const [networkError, setNetworkError] = useState(false);
+  const [account, setAccount] = useState();
+  const [networkError, setNetworkError] = useState();
   const [walletConnected, setWalletConnected] = useState(false);
-  const [currentAccount, setCurrentAccount] = useState(null);
 
-  const checkWalletIsConnected = async () => {
-    const { ethereum } = window;
-    if (!ethereum) {
-      console.log("Must install Metamask!");
-      return;
-    }
-    let chainId = await ethereum.request({ method: "eth_chainId" });
-    const rinkebyChainId = "0x4";
-    if (chainId !== rinkebyChainId) {
-      setNetworkError(true);
-    }
-    const accounts = await ethereum.request({ method: "eth_accounts" });
+  const connectWallet = async () => {
+    try {
+      const provider = await web3Modal.connect();
+      const library = new ethers.providers.Web3Provider(provider);
+      const accounts = await library.listAccounts();
+      const network = await library.getNetwork();
 
-    if (accounts.length !== 0) {
-      const account = accounts[0];
-      console.log("Metamask connected: ", account);
-      setCurrentAccount(account);
-      setWalletConnected(true);
-    } else {
-      console.log("Metamask not connected.");
+      if (accounts) {
+        setAccount(accounts[0]);
+        setWalletConnected(true);
+      }
+      if (network.chainId !== 4) {
+        setNetworkError(true);
+      }
+    } catch (error) {
+      console.log("Error:", error);
     }
   };
 
   useEffect(() => {
-    checkWalletIsConnected();
+    if (web3Modal.cachedProvider) {
+      connectWallet();
+    }
   }, []);
 
   useEffect(() => {
@@ -54,11 +61,12 @@ function App() {
   return (
     <Layout walletConnected={walletConnected} networkError={networkError}>
       <Hero />
-      {!networkError && currentAccount && (
-        <MintButton walletAddress={currentAccount} />
-      )}
-      {!currentAccount && (
-        <ConnectWalletButton setCurrentAccount={setCurrentAccount} />
+      {!networkError && account && <MintButton walletAddress={account} />}
+      {!walletConnected && (
+        <ConnectWalletButton
+          connectWallet={connectWallet}
+          setAccount={setAccount}
+        />
       )}
       <Info />
       <ContractDetails />
