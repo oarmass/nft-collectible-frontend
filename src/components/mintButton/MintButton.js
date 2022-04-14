@@ -13,7 +13,7 @@ export default function MintButton({ walletAddress }) {
   const [mintingSuccess, setMintingSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   // Price Helpers
-  const price = totalToMint / 10;
+  const price = totalToMint / 100;
   const priceToString = price.toString();
   // Contract References
   const contractAddress = "0x4cC0fd6e661857D0715B6C51A04310A9C651AD62";
