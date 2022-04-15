@@ -5,9 +5,9 @@ export default function TransactionSuccess({ mintAgain, walletAddress, hash }) {
   const ETHERSCAN_BASE_URL = "https://rinkeby.etherscan.io/tx";
   return (
     <div className={s.container}>
-      <p className={s.message}>Mint Successful</p>
+      <p className={s.message}>Mint successful!</p>
       <p className={s.linkText}>
-        View on{" "}
+        View on{" "}.
         <a
           target="_blank"
           rel="noreferrer"
@@ -18,7 +18,7 @@ export default function TransactionSuccess({ mintAgain, walletAddress, hash }) {
         </a>
       </p>
       <p className={s.linkText}>
-        View on{" "}
+        View {" "} transaction.
         <a
           target="_blank"
           rel="noreferrer"
@@ -30,7 +30,7 @@ export default function TransactionSuccess({ mintAgain, walletAddress, hash }) {
       </p>
 
       <button onClick={mintAgain} className={s.mintAgain}>
-        mint again
+        Mint again to save more moonturds?
       </button>
     </div>
   );
