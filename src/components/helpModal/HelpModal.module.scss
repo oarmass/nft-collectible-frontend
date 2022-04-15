@@ -54,6 +54,17 @@
   }
 }
 
+.heading {
+  color: $black;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 .content {
   color: $black;
+}
+
+.link {
+  color: $blue;
+  font-weight: 700;
 }
