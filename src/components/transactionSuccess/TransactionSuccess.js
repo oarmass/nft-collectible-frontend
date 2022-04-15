@@ -7,7 +7,7 @@ export default function TransactionSuccess({ mintAgain, walletAddress, hash }) {
     <div className={s.container}>
       <p className={s.message}>Mint successful!</p>
       <p className={s.linkText}>
-        View on{" "}.
+        View on{" "}
         <a
           target="_blank"
           rel="noreferrer"
@@ -16,9 +16,10 @@ export default function TransactionSuccess({ mintAgain, walletAddress, hash }) {
         >
           OpenSea
         </a>
+        .
       </p>
       <p className={s.linkText}>
-        View {" "} transaction.
+        View transaction
         <a
           target="_blank"
           rel="noreferrer"
@@ -27,6 +28,7 @@ export default function TransactionSuccess({ mintAgain, walletAddress, hash }) {
         >
           Etherscan
         </a>
+        .
       </p>
 
       <button onClick={mintAgain} className={s.mintAgain}>

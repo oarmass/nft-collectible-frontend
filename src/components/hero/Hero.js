@@ -10,7 +10,13 @@ export default function Hero() {
         10,000 moonturds are floating and swirling across the galaxy! Mint to
         save one today.
       </p>
-      <button className={s.openSeaButton}>View Collection on OpenSea</button>
+      {/* Uncomment when OpenSea is live
+      <a
+        href="https://testnets.opensea.io/collection/moonturds-v3"
+        className={s.openSeaButton}
+      >
+        View Collection on OpenSea
+      </a> */}
       <img className={s.gif} src={turdGif} alt="collection gif" />
     </div>
   );

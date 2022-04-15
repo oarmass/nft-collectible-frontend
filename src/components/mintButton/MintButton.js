@@ -56,10 +56,11 @@ export default function MintButton({ walletAddress }) {
     }
   };
 
-  const handleInputChange = (amount) => {
-    setErrorMessage(null);
-    setTotalToMint(amount);
-  };
+  // Uncomment when minting is live
+  //   const handleInputChange = (amount) => {
+  //     setErrorMessage(null);
+  //     setTotalToMint(amount);
+  //   };
 
   const mintAgain = () => {
     setMintingSuccess(false);
@@ -77,6 +78,7 @@ export default function MintButton({ walletAddress }) {
   return (
     <>
       <div className={s.container}>
+        {/* Uncomment when minting is live
         <p className={s.instructions}>How many would you like to mint?</p>
         <input
           type="number"
@@ -86,15 +88,20 @@ export default function MintButton({ walletAddress }) {
           className={s.input}
           onChange={(e) => handleInputChange(e.target.value)}
         />
-        {totalToMint !== null && <p className={s.price}>PRICE: {price} eth</p>}
+        {totalToMint !== null && <p className={s.price}>PRICE: {price} eth</p>} */}
 
         <div className={s.buttonContainer}>
           <button
             onClick={() => mintNFT(totalToMint, priceToString)}
             className={s.button}
-            disabled={totalToMint === null}
+            // Uncomment the line below to re-enable minting
+            // and delete the disabled={true} line
+            // disabled={totalToMint === null}
+            disabled={true}
           >
-            {totalToMint > 1 ? "MINT MOONTURDS!" : "MINT MOONTURD!"}
+            {/* Uncomment this block to re-enable minting
+            {totalToMint > 1 ? "MINT MOONTURDS!" : "MINT MOONTURD!"} */}
+            Minting Coming Soon!
           </button>
           <AiFillQuestionCircle
             onClick={toggleHelpModal}

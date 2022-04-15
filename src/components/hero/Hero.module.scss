@@ -22,7 +22,7 @@
 .leadText {
   font-size: 18px;
   font-weight: 500;
-  margin: 0;
+  margin: 0 0 $x3 0;
   @media (max-width: 768px) {
     font-size: 18px;
   }
@@ -43,7 +43,7 @@
   font-size: 18px;
   font-weight: 900;
   color: $green;
-  margin: $x3 0;
+  margin: 0 0 $x3 0;
   border: none;
   border-radius: $x1;
   text-decoration: underline;

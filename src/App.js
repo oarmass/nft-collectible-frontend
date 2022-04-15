@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ConnectWalletButton from "./components/connectWalletButton/ConnectWalletButton";
-import ContractDetails from "./components/contractDetails/ContractDetails";
+// Uncomment when contract is live
+// import ContractDetails from "./components/contractDetails/ContractDetails";
 import Hero from "./components/hero/Hero";
 import Info from "./components/info/Info";
 import Layout from "./components/layout/Layout";
@@ -69,9 +70,10 @@ function App() {
         />
       )}
       <Info />
-      <ContractDetails />
-      <Team />
+      {/* Uncomment when contract is live */}
+      {/* <ContractDetails /> */}
       <Testimonials />
+      <Team />
     </Layout>
   );
 }

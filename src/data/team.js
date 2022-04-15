@@ -1,7 +1,7 @@
 import image1 from "../assets/51.png";
 import image2 from "../assets/62.png";
 import image3 from "../assets/68.png";
-import image4 from "../assets/build_pirate.png";
+import image4 from "../assets/136.png";
 import image5 from "../assets/IMG_3465.png";
 import image6 from "../assets/100.png";
 
@@ -12,7 +12,7 @@ export const data = [
     name: "mangos",
     title1: "Senior Solidity Engineer",
     title2: "Chief Legal Officer",
-    //link: "https://twitter.com/moonturds_xyz",
+    link: "",
   },
   {
     id: 1,
@@ -28,7 +28,7 @@ export const data = [
     name: "kl",
     title1: "Chief Creative Officer",
     title2: "Lead Artist",
-    //link: "https://twitter.com/moonturds_xyz",
+    link: "",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ export const data = [
     name: "paragon",
     title1: "Chief Technology Officer",
     title2: "Gasmetician",
-    //link: "https://twitter.com/moonturds_xyz",
+    link: "",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ export const data = [
     image: image6,
     name: "Carl",
     title1: "Major Art Contributor",
-    //title2: " ",
-   // link: "https://twitter.com/moonturds_xyz",
+    title2: "",
+    link: "",
   },
 ];
