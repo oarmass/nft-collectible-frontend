@@ -11,7 +11,7 @@ export const data = [
     image: image1,
     name: "mangos",
     title1: "Senior Solidity Engineer",
-    title: "Chief Legal Officer",
+    title2: "Chief Legal Officer",
     //link: "https://twitter.com/moonturds_xyz",
   },
   {
@@ -19,7 +19,7 @@ export const data = [
     image: image2,
     name: "Ether Longoria",
     title1: "Chief Marketing Officer",
-    //title2: "NFT connoisseur",
+    title2: "Lead Shiller",
     link: "https://twitter.com/EtherLongoria",
   },
   {
