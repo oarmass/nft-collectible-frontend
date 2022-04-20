@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import ConnectWalletButton from "./components/connectWalletButton/ConnectWalletButton";
-// Uncomment when contract is live
-// import ContractDetails from "./components/contractDetails/ContractDetails";
+import ContractDetails from "./components/contractDetails/ContractDetails";
 import Hero from "./components/hero/Hero";
 import Info from "./components/info/Info";
 import Layout from "./components/layout/Layout";
@@ -13,8 +12,8 @@ import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 
 const web3Modal = new Web3Modal({
-  network: "rinkeby", // optional
-  providerOptions, // required
+  network: "rinkeby",
+  providerOptions,
   cacheProvider: true,
 });
 
@@ -34,7 +33,7 @@ function App() {
         setAccount(accounts[0]);
         setWalletConnected(true);
       }
-      if (network.chainId !== 4) {
+      if (network.chainId !== 1) {
         setNetworkError(true);
       }
     } catch (error) {
@@ -64,14 +63,10 @@ function App() {
       <Hero />
       {!networkError && account && <MintButton walletAddress={account} />}
       {!walletConnected && (
-        <ConnectWalletButton
-          connectWallet={connectWallet}
-          setAccount={setAccount}
-        />
+        <ConnectWalletButton connectWallet={connectWallet} />
       )}
       <Info />
-      {/* Uncomment when contract is live */}
-      {/* <ContractDetails /> */}
+      <ContractDetails />
       <Testimonials />
       <Team />
     </Layout>

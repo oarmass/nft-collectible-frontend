@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Header.module.scss";
 import TurdLogo from "../../assets/9.png";
-// import OS from "../../assets/opensea.png";
+import OS from "../../assets/opensea.png";
 import { FaTwitter } from "react-icons/fa";
 
 export default function Header() {
@@ -18,13 +18,12 @@ export default function Header() {
         >
           <FaTwitter className={s.twitter} />
         </a>
-        {/* Uncomment this block once opensea link is live
         <a
           className={s.link}
           href="https://testnets.opensea.io/collection/moonturds-v3"
         >
           <img className={s.linkImage} src={OS} alt="opensea icon" />
-        </a> */}
+        </a>
       </div>
     </div>
   );

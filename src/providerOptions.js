@@ -3,18 +3,18 @@ import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 
 export const providerOptions = {
   walletconnect: {
-    package: WalletConnectProvider, // required
+    package: WalletConnectProvider,
     options: {
-      infuraId: "200a472f5344499792d1d43d04529a2f", // required
+      infuraId: "200a472f5344499792d1d43d04529a2f",
     },
   },
   coinbasewallet: {
-    package: CoinbaseWalletSDK, // Required
+    package: CoinbaseWalletSDK,
     options: {
-      appName: "My Awesome App", // Required
-      infuraId: "200a472f5344499792d1d43d04529a2f", // Required
-      chainId: 4, // Optional. It defaults to 1 if not provided
-      darkMode: false, // Optional. Use dark theme, defaults to false
+      appName: "My Awesome App",
+      infuraId: "200a472f5344499792d1d43d04529a2f",
+      chainId: 4,
+      darkMode: false,
     },
   },
 };
