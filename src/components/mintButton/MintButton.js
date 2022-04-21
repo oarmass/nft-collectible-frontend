@@ -20,7 +20,7 @@ export default function MintButton({ walletAddress }) {
   const price = totalToMint / 100;
   const priceToString = price.toString();
   // Contract References
-  const contractAddress = "0x4cC0fd6e661857D0715B6C51A04310A9C651AD62";
+  const contractAddress = "0x92FAa85bCbB7B6eC32dBc0fA262b002E73B7A11C";
   const abi = contract.abi;
 
   const toggleHelpModal = () => setHelpModalVisible(!helpModalVisible);

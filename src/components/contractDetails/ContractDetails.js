@@ -2,8 +2,8 @@ import React from "react";
 import s from "./ContractDetails.module.scss";
 
 export default function ContractDetails() {
-  const BASE_URL = "https://rinkeby.etherscan.io/address";
-  const CONTRACT_ADDRESS = "0x4cC0fd6e661857D0715B6C51A04310A9C651AD62";
+  const BASE_URL = "https://etherscan.io/address";
+  const CONTRACT_ADDRESS = "0x92FAa85bCbB7B6eC32dBc0fA262b002E73B7A11C";
 
   const CONTRACT_LINK = `${BASE_URL}/${CONTRACT_ADDRESS}`;
   return (

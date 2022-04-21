@@ -11,7 +11,7 @@ export default function Hero() {
         save one today.
       </p>
       <a
-        href="https://testnets.opensea.io/collection/moonturds-v3"
+        href="https://opensea.io/collection/moonturdsxyz"
         className={s.openSeaButton}
       >
         View Collection on OpenSea

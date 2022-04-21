@@ -18,10 +18,7 @@ export default function Header() {
         >
           <FaTwitter className={s.twitter} />
         </a>
-        <a
-          className={s.link}
-          href="https://testnets.opensea.io/collection/moonturds-v3"
-        >
+        <a className={s.link} href="https://opensea.io/collection/moonturdsxyz">
           <img className={s.linkImage} src={OS} alt="opensea icon" />
         </a>
       </div>

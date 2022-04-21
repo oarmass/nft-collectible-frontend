@@ -2,7 +2,7 @@ import React from "react";
 import s from "./TransactionSuccess.module.scss";
 
 export default function TransactionSuccess({ mintAgain, walletAddress, hash }) {
-  const ETHERSCAN_BASE_URL = "https://rinkeby.etherscan.io/tx";
+  const ETHERSCAN_BASE_URL = "https://etherscan.io/tx";
   return (
     <div className={s.container}>
       <p className={s.message}>Mint successful!</p>
@@ -11,7 +11,7 @@ export default function TransactionSuccess({ mintAgain, walletAddress, hash }) {
         <a
           target="_blank"
           rel="noreferrer"
-          href={`https://testnets.opensea.io/${walletAddress}/`}
+          href={`https://opensea.io/${walletAddress}/`}
           className={s.link}
         >
           OpenSea

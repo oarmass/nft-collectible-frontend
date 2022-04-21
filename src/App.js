@@ -12,7 +12,7 @@ import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 
 const web3Modal = new Web3Modal({
-  network: "rinkeby",
+  network: "mainnet",
   providerOptions,
   cacheProvider: true,
 });
