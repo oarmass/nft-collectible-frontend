@@ -19,7 +19,7 @@ export default function TransactionSuccess({ mintAgain, walletAddress, hash }) {
         .
       </p>
       <p className={s.linkText}>
-        View transaction
+        View{" "}
         <a
           target="_blank"
           rel="noreferrer"
@@ -27,8 +27,8 @@ export default function TransactionSuccess({ mintAgain, walletAddress, hash }) {
           href={`${ETHERSCAN_BASE_URL}/${hash}`}
         >
           Etherscan
-        </a>
-        .
+        </a>{" "}
+        transaction.
       </p>
 
       <button onClick={mintAgain} className={s.mintAgain}>
