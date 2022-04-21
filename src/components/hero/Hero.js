@@ -10,12 +10,24 @@ export default function Hero() {
         10,000 moonturds are floating and swirling across the galaxy! Mint to
         save one today.
       </p>
-      <a
-        href="https://opensea.io/collection/moonturdsxyz"
-        className={s.openSeaButton}
-      >
-        View Collection on OpenSea
-      </a>
+      <p>
+        View collection on{" "}
+        <a
+          href="https://opensea.io/collection/moonturdsxyz"
+          className={s.openSeaButton}
+        >
+          OpenSea
+        </a>{" "}
+        or{" "}
+        <a
+          href="https://rarible.com/moonturds/items"
+          className={s.openSeaButton}
+        >
+          Rarible
+        </a>
+        .
+      </p>
+
       <img className={s.gif} src={turdGif} alt="collection gif" />
     </div>
   );
