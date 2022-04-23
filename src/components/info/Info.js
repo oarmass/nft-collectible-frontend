@@ -7,7 +7,7 @@ export default function Info() {
       <h3 className={s.heading}>Moonturds are for everyone!</h3>
       <p className={s.text}>
         Tired of venture capitalists pricing you out of the next best PFP
-        project? You're not alone. Moonturds is for commonfolk. No centralized
+        project? You're not alone. Moonturds is for commonfolk. No 
         allowlist. No grind. No botting. No roadmap promises. Simply affordable,
         fair, and fantastic art for everyone.
       </p>
