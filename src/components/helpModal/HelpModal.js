@@ -19,6 +19,10 @@ export default function HelpModal({ toggle, show }) {
           10 at a time (which would total .1 ether). Minting also requires
           enough ether to cover gas involved in the transaction.
         </p>
+        <h3 className={s.heading}>Not working on mobile?</h3>
+        <p className={s.content}>
+          Use your wallet's built in browser to visit our page and try again.
+        </p>
         <h3 className={s.heading}>Need to disconnect your wallet?</h3>
         <p className={s.content}>
           You must manually disconnect your wallet. Wallet disconnection is
