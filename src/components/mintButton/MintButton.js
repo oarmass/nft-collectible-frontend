@@ -8,7 +8,8 @@ import TransactionSuccess from "../transactionSuccess/TransactionSuccess";
 import HelpModal from "../helpModal/HelpModal";
 // Styles
 import s from "./MintButton.module.scss";
-import detectEthereumProvider from "@metamask/detect-provider";
+import { providerOptions } from "../../providerOptions";
+import Web3Modal from "web3modal";
 
 export default function MintButton({ walletAddress }) {
   const [totalToMint, setTotalToMint] = useState(null);
@@ -28,23 +29,23 @@ export default function MintButton({ walletAddress }) {
 
   const mintNFT = async (numberToMint, amount) => {
     try {
-      const ethereum = await detectEthereumProvider();
-      console.log("ETH", ethereum);
-      if (ethereum) {
-        setLoading(true);
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const signer = provider.getSigner();
-        const nftContract = new ethers.Contract(contractAddress, abi, signer);
-        let mintingTransaction = await nftContract.mintNFTs(numberToMint, {
-          value: ethers.utils.parseEther(amount),
-        });
-        await mintingTransaction.wait();
-        setHash(mintingTransaction.hash);
-        setMintingSuccess(true);
-        setLoading(false);
-        // Reset total to remove conditional logic in UI
-        setTotalToMint(null);
-      }
+      setLoading(true);
+      const provider = await web3Modal.connect();
+      const web3Provider = new ethers.providers.Web3Provider(provider);
+      const signer = web3Provider.getSigner();
+      const nftContract = new ethers.Contract(contractAddress, abi, signer);
+      let mintingTransaction = await nftContract.mintNFTs(numberToMint, {
+        value: ethers.utils.parseEther(amount),
+      });
+      await mintingTransaction.wait();
+      setHash(mintingTransaction.hash);
+      setMintingSuccess(true);
+      setLoading(false);
+      // Reset total to remove conditional logic in UI
+      setTotalToMint(null);
+      // Reset total to remove conditional logic in UI
+      setTotalToMint(null);
+      setLoading(false);
     } catch (err) {
       console.log(err);
       if (err.code === "INSUFFICIENT_FUNDS") {
@@ -66,6 +67,15 @@ export default function MintButton({ walletAddress }) {
   const mintAgain = () => {
     setMintingSuccess(false);
   };
+
+  let web3Modal;
+  if (typeof window !== "undefined") {
+    web3Modal = new Web3Modal({
+      network: "mainnet", // optional
+      cacheProvider: true,
+      providerOptions, // required
+    });
+  }
 
   if (loading) return <Loader />;
   if (mintingSuccess)

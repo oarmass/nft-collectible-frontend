@@ -11,11 +11,11 @@ import { providerOptions } from "./providerOptions";
 import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 
-const web3Modal = new Web3Modal({
-  network: "mainnet",
-  providerOptions,
-  cacheProvider: true,
-});
+// const web3Modal = new Web3Modal({
+//   network: "mainnet",
+//   providerOptions,
+//   cacheProvider: true,
+// });
 
 function App() {
   const [account, setAccount] = useState();
@@ -23,22 +23,22 @@ function App() {
   const [walletConnected, setWalletConnected] = useState(false);
 
   const connectWallet = async () => {
-    try {
-      const provider = await web3Modal.connect();
-      const library = new ethers.providers.Web3Provider(provider);
-      const accounts = await library.listAccounts();
-      const network = await library.getNetwork();
+    // This is the initial `provider` that is returned when
+    // using web3Modal to connect. Can be MetaMask or WalletConnect.
+    const provider = await web3Modal.connect();
 
-      if (accounts) {
-        setAccount(accounts[0]);
+    // We plug the initial `provider` into ethers.js and get back
+    // a Web3Provider. This will add on methods from ethers.js and
+    // event listeners such as `.on()` will be different.
+    const web3Provider = new ethers.providers.Web3Provider(provider);
 
-        setWalletConnected(true);
-      }
-      if (network.chainId !== 1) {
-        setNetworkError(true);
-      }
-    } catch (error) {
-      console.log("Error:", error);
+    const signer = web3Provider.getSigner();
+    const address = await signer.getAddress();
+    setAccount(address);
+    setWalletConnected(true);
+    const network = await web3Provider.getNetwork();
+    if (network.chainId !== 1) {
+      setNetworkError(true);
     }
   };
 
@@ -46,6 +46,7 @@ function App() {
     if (web3Modal.cachedProvider) {
       connectWallet();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -58,6 +59,15 @@ function App() {
       });
     }
   });
+
+  let web3Modal;
+  if (typeof window !== "undefined") {
+    web3Modal = new Web3Modal({
+      network: "mainnet", // optional
+      cacheProvider: true,
+      providerOptions, // required
+    });
+  }
 
   return (
     <Layout walletConnected={walletConnected} networkError={networkError}>
