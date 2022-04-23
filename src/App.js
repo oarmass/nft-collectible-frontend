@@ -11,33 +11,21 @@ import { providerOptions } from "./providerOptions";
 import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 
-const web3Modal = new Web3Modal({
-  network: "mainnet",
-  providerOptions,
-  cacheProvider: true,
-});
-
 function App() {
   const [account, setAccount] = useState();
   const [networkError, setNetworkError] = useState();
   const [walletConnected, setWalletConnected] = useState(false);
 
   const connectWallet = async () => {
-    try {
-      const provider = await web3Modal.connect();
-      const library = new ethers.providers.Web3Provider(provider);
-      const accounts = await library.listAccounts();
-      const network = await library.getNetwork();
-
-      if (accounts) {
-        setAccount(accounts[0]);
-        setWalletConnected(true);
-      }
-      if (network.chainId !== 1) {
-        setNetworkError(true);
-      }
-    } catch (error) {
-      console.log("Error:", error);
+    const provider = await web3Modal.connect();
+    const web3Provider = new ethers.providers.Web3Provider(provider);
+    const signer = web3Provider.getSigner();
+    const address = await signer.getAddress();
+    setAccount(address);
+    setWalletConnected(true);
+    const network = await web3Provider.getNetwork();
+    if (network.chainId !== 1) {
+      setNetworkError(true);
     }
   };
 
@@ -45,6 +33,7 @@ function App() {
     if (web3Modal.cachedProvider) {
       connectWallet();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -57,6 +46,15 @@ function App() {
       });
     }
   });
+
+  let web3Modal;
+  if (typeof window !== "undefined") {
+    web3Modal = new Web3Modal({
+      network: "mainnet", // optional
+      cacheProvider: true,
+      providerOptions, // required
+    });
+  }
 
   return (
     <Layout walletConnected={walletConnected} networkError={networkError}>
