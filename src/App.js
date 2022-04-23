@@ -11,27 +11,14 @@ import { providerOptions } from "./providerOptions";
 import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 
-// const web3Modal = new Web3Modal({
-//   network: "mainnet",
-//   providerOptions,
-//   cacheProvider: true,
-// });
-
 function App() {
   const [account, setAccount] = useState();
   const [networkError, setNetworkError] = useState();
   const [walletConnected, setWalletConnected] = useState(false);
 
   const connectWallet = async () => {
-    // This is the initial `provider` that is returned when
-    // using web3Modal to connect. Can be MetaMask or WalletConnect.
     const provider = await web3Modal.connect();
-
-    // We plug the initial `provider` into ethers.js and get back
-    // a Web3Provider. This will add on methods from ethers.js and
-    // event listeners such as `.on()` will be different.
     const web3Provider = new ethers.providers.Web3Provider(provider);
-
     const signer = web3Provider.getSigner();
     const address = await signer.getAddress();
     setAccount(address);
