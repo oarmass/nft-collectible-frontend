@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@coinbase/wallet-sdk": "^3.0.6",
+    "@metamask/detect-provider": "^1.2.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.1",
     "@testing-library/user-event": "^13.5.0",

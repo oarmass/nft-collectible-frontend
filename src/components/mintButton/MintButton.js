@@ -8,6 +8,7 @@ import TransactionSuccess from "../transactionSuccess/TransactionSuccess";
 import HelpModal from "../helpModal/HelpModal";
 // Styles
 import s from "./MintButton.module.scss";
+import detectEthereumProvider from "@metamask/detect-provider";
 
 export default function MintButton({ walletAddress }) {
   const [totalToMint, setTotalToMint] = useState(null);
@@ -27,7 +28,7 @@ export default function MintButton({ walletAddress }) {
 
   const mintNFT = async (numberToMint, amount) => {
     try {
-      const { ethereum } = window;
+      const ethereum = await detectEthereumProvider();
       if (ethereum) {
         setLoading(true);
         const provider = new ethers.providers.Web3Provider(ethereum);
@@ -44,7 +45,7 @@ export default function MintButton({ walletAddress }) {
         setTotalToMint(null);
       }
     } catch (err) {
-      console.log(err.code);
+      console.log(err);
       if (err.code === "INSUFFICIENT_FUNDS") {
         setErrorMessage("You need more ether!");
       } else {

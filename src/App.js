@@ -31,6 +31,7 @@ function App() {
 
       if (accounts) {
         setAccount(accounts[0]);
+
         setWalletConnected(true);
       }
       if (network.chainId !== 1) {
