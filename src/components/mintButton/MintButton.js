@@ -29,6 +29,7 @@ export default function MintButton({ walletAddress }) {
   const mintNFT = async (numberToMint, amount) => {
     try {
       const ethereum = await detectEthereumProvider();
+      console.log("ETH", ethereum);
       if (ethereum) {
         setLoading(true);
         const provider = new ethers.providers.Web3Provider(ethereum);
